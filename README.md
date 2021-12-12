@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # storyblok-workshop
 
 ## Project setup
@@ -22,3 +23,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# Storyblok workshop
+
+Liip Storyblok workshop
+>>>>>>> 3977310de1fe1c77b1f0a85e3a28d5904b6b4f10
