@@ -1,8 +1,9 @@
 import Vue from 'vue';
+import StoryblokVue from '@storyblok/vue';
 import App from './App.vue';
 import Page from '@/components/Page.vue';
 import Teaser from '@/components/Teaser.vue';
-import Image from '@/components/Image.vue';
+import ImageComponent from '@/components/ImageComponent.vue';
 import Headline from '@/components/Headline.vue';
 import Richtext from '@/components/Richtext.vue';
 import Button from '@/components/Button.vue';
@@ -13,9 +14,11 @@ import './assets/tailwind.css';
 
 Vue.config.productionTip = false;
 
+Vue.use(StoryblokVue);
+
 Vue.component('page', Page);
 Vue.component('teaser', Teaser);
-Vue.component('image-component', Image);
+Vue.component('image-component', ImageComponent);
 Vue.component('headline', Headline);
 Vue.component('richtext', Richtext);
 Vue.component('button-component', Button);

@@ -1,6 +1,6 @@
 <template>
   <div v-editable="blok">
-    <component
+    <!-- <component
       v-for="(paragraphItem, index) in blok.content.content"
       :key="index"
       :is="getComponent(paragraphItem)"
@@ -12,12 +12,15 @@
       >
         {{ spanItem.text }}
       </span>
-    </component>
+    </component> -->
+
+    <div v-html="richtext(blok.content)"></div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import StoryblokClient from 'storyblok-js-client';
 
 @Component
 export default class Richtext extends Vue {
@@ -30,6 +33,16 @@ export default class Richtext extends Vue {
       };
     };
   };
+
+  richtext(text: any) {
+    let Storyblok = new StoryblokClient({
+      accessToken: process.env.VUE_APP_STORYBLOK_PREVIEW_TOKEN,
+    });
+
+    console.log(Storyblok.richTextResolver.render(text));
+
+    return Storyblok.richTextResolver.render(text);
+  }
 
   getComponent(item: any) {
     if (item.type === 'heading') {
@@ -57,6 +70,10 @@ export default class Richtext extends Vue {
       });
     }
     return applyClass;
+  }
+
+  created() {
+    console.log(this.blok);
   }
 }
 </script>

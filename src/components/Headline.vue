@@ -1,6 +1,7 @@
 <template>
   <div v-editable="blok">
-    <component :is="blok.type">{{ blok.text }}</component>
+    <!-- <component :is="blok.type">{{ blok.text }}</component> -->
+    <h1>{{ blok.text }}</h1>
   </div>
 </template>
 
