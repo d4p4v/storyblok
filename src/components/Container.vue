@@ -16,11 +16,9 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Container extends Vue {
-  @Prop() blok!: {};
-
-  mounted() {
-    console.log(this.blok);
-  }
+  @Prop() blok!: {
+    content: [];
+  };
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="story.content">
     <!-- <span>Dynamic Component</span> -->
     <component :blok="story.content" :is="story.content.component"></component>
   </div>
@@ -9,13 +9,9 @@
 import { Component, Vue } from "vue-property-decorator";
 import { useStoryblokBridge, useStoryblokApi } from "@storyblok/vue-2";
 
-interface StoryType {
-  data: { story: []; stories: [] };
-}
-
 @Component
 export default class DymamicComponent extends Vue {
-  story: any = null;
+  story: any = {};
 
   storyblokApi = useStoryblokApi();
 
@@ -24,8 +20,7 @@ export default class DymamicComponent extends Vue {
       .get(`cdn/stories/` + slug, {
         version: version,
       })
-      .then((response: StoryType) => {
-        console.log(response);
+      .then((response: { data: { stories: [] } }) => {
         // this.story = response?.data?.story;
         this.story = response?.data?.stories.find(
           (item: { slug: string }) => item.slug === "home"

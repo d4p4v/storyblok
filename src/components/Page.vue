@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- <h1>Page</h1> -->
-    <template v-for="item in blok.body">
+    <template v-for="(item, index) in blok.body">
       <component
-        :key="item._uid"
+        :key="item.component + index"
         :blok="item || null"
         :is="item.component"
       ></component>
@@ -16,7 +16,9 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Page extends Vue {
-  @Prop() blok!: {};
+  @Prop() blok!: {
+    body: [];
+  };
 }
 </script>
 
