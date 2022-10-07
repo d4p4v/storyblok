@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <!-- <h1>Page</h1> -->
-    <template v-for="item in blok.body">
+  <div class="bg-blue-400">
+    <div>Container</div>
+    <template v-for="item in blok.content">
       <component
         :key="item._uid"
         :blok="item || null"
@@ -15,8 +15,12 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
-export default class Page extends Vue {
+export default class Container extends Vue {
   @Prop() blok!: {};
+
+  mounted() {
+    console.log(this.blok);
+  }
 }
 </script>
 
