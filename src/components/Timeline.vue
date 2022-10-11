@@ -7,7 +7,7 @@
         <div class="mb-24 h-min">
             {{ text }}
         </div>
-        <div id="timeline">
+        <div id="timeline" class="flex w-5/6 h-[1px]">
             <div
                 v-for="(item, index) in blok.entries"
                 :style="{
@@ -17,7 +17,22 @@
                 :key="item.component + index"
                 class="flex items-center justify-center h-min"
             >
-                <div class="year cursor-pointer" @click="updateText(item.text)">
+                <div
+                    class="
+                        cursor-pointer
+                        rounded-full
+                        w-[56px]
+                        h-[56px]
+                        flex
+                        justify-center
+                        items-center
+                        bg-white
+                        border-black border-[1px]
+                        hover:w-[60px] hover:h-[60px]
+                        transition-all
+                    "
+                    @click="updateText(item)"
+                >
                     {{ item.year }}
                 </div>
             </div>
@@ -28,35 +43,29 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+type TimelineType = {
+    component: string;
+    year: string;
+    text: string;
+};
+
 @Component
 export default class Timeline extends Vue {
     @Prop() blok!: {
-        body: [];
+        height: string;
+        entries: TimelineType[];
     };
 
     text: string = 'Press any element to find out more!';
 
-    updateText(txt: string) {
-        this.text = txt;
+    updateText(item: any) {
+        this.text = item.text;
     }
 }
 </script>
 
 <style scoped>
 #timeline {
-    width: 90%;
-    height: 1px;
     background: linear-gradient(to right, #fff, #000, #fff);
-    display: flex;
-}
-
-.year {
-    border-radius: 100%;
-    width: 60px;
-    height: 60px;
-    background-color: red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 </style>

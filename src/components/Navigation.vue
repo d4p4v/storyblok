@@ -9,14 +9,19 @@
                 height: `${blok.height}`,
             }"
         >
-            <a
-                class="cursor-pointer"
-                v-for="(item, index) in blok.links"
-                :key="item.component + index"
-                :href="'#' + item.id"
-            >
-                {{ item.name }}
-            </a>
+            <li>
+                <a
+                    class="cursor-pointer"
+                    :style="{
+                        marginLeft: `${blok.spacing}`,
+                        marginRight: `${blok.spacing}`,
+                    }"
+                    v-for="(item, index) in blok.links"
+                    :key="item.component + index"
+                    :href="'#' + item.id"
+                    >{{ item.name }}</a
+                >
+            </li>
         </ul>
     </div>
 </template>
@@ -32,6 +37,8 @@ export default class Navigation extends Vue {
 
     mounted() {
         document.body.style.marginTop = this.blok.height;
+
+        
     }
 }
 </script>

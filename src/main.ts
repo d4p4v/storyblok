@@ -7,6 +7,8 @@ import Navigation from '@/components/Navigation.vue';
 import Wrapper from '@/components/Wrapper.vue';
 import Timeline from '@/components/Timeline.vue';
 import SkillList from '@/components/SkillList.vue';
+import Spacer from '@/components/Spacer.vue';
+import Headline from '@/components/Headline.vue';
 
 import './assets/tailwind.css';
 
@@ -23,6 +25,8 @@ Vue.component('navigation', Navigation);
 Vue.component('wrapper', Wrapper);
 Vue.component('timeline', Timeline);
 Vue.component('skill-list', SkillList);
+Vue.component('spacer', Spacer);
+Vue.component('headline', Headline);
 
 new Vue({
     render: (h) => h(App),
