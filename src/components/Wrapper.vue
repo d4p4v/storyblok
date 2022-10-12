@@ -1,7 +1,7 @@
 <template>
     <div
         v-editable
-        class="flex w-full items-center justify-center"
+        class="flex w-full items-center justify-center pt-7 lg:pb-7"
         :style="{
             backgroundColor: `${blok.bg.color}`,
             height: `${blok.height}`,
@@ -22,7 +22,9 @@
                 :key="item.component + index"
                 class="flex items-center justify-center"
             >
-                <p class="mb-7 w-5/6 text-justify">{{ item.content }}</p>
+                <p class="lg:mb-0 mb-7 w-5/6 text-justify">
+                    {{ item.content }}
+                </p>
             </div>
         </div>
     </div>
