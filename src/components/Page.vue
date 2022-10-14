@@ -1,5 +1,5 @@
 <template>
-    <div :style="heightStyle">
+    <div>
         <!-- <h1>Page</h1> -->
         <template v-for="(item, index) in blok.body">
             <component

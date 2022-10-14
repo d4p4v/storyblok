@@ -8,7 +8,7 @@
                 class="w-3/4 flex items-center flex-col"
             >
                 <p class="font-semibold">{{ skill.name }}</p>
-                <p class="mb-2 w-1/2">{{ skill.description }}</p>
+                <p class="mb-2 w-full lg:w-1/2">{{ skill.description }}</p>
                 <div class="flex w-full">
                     <div
                         :style="{
@@ -20,9 +20,9 @@
                         <div
                             :style="{
                                 width: `${skill.percentage}%`,
-                                height: '20px',
                                 backgroundColor: `${blok.fg.color}`,
                             }"
+                            class="h-[20px]"
                         ></div>
                     </div>
                     <p class="ml-4">{{ skill.percentage }}%</p>

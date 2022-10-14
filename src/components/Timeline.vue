@@ -10,12 +10,15 @@
         <div id="timeline" class="flex w-5/6 h-[1px]">
             <div
                 v-for="(item, index) in blok.entries"
-                :style="{
-                    width: `${100 / blok.entries.length}%`,
-                    whiteSpace: 'pre',
-                }"
                 :key="item.component + index"
-                class="flex items-center justify-center h-min"
+                class="
+                    w-full
+                    flex
+                    items-center
+                    justify-center
+                    whitespace-pre
+                    h-min
+                "
             >
                 <div
                     class="

@@ -8,23 +8,47 @@
         }"
     >
         <div
-            class="flex items-center justify-center w-4/5 flex-col lg:flex-row"
+            class="
+                flex
+                items-center
+                justify-center
+                w-4/5
+                flex-col
+                lg:flex-row
+            "
         >
             <div
                 v-for="(item, index) in blok.content"
                 :style="{
-                    textAlign: `${item.alignment}`,
-                    color: `${item.foreground.color}`,
-                    width: `${calculatedWidth}`,
-                    whiteSpace: 'pre-wrap',
-                    wordSpacing: 'length',
+                    textAlign: `${!('src' in item) ? item.alignment : ''}`,
+                    color: `${!('src' in item) ? item.fg.color : ''}`,
                 }"
                 :key="item.component + index"
-                class="flex items-center justify-center"
+                class="
+                    flex
+                    whitespace-pre-wrap
+                    items-center
+                    w-4/5
+                    lg:w-2/5
+                    justify-center
+                "
             >
-                <p class="lg:mb-0 mb-7 w-5/6 text-justify">
+                <p v-if="'content' in item" class="lg:mb-0 mb-7 w-5/6">
                     {{ item.content }}
                 </p>
+                <a
+                    v-if="'link' in item"
+                    :href="item.link"
+                    class="lg:mb-0 mb-7 w-5/6 underline"
+                    >{{ item.text }}</a
+                >
+                <img
+                    v-if="'src' in item"
+                    class="lg:mb-0 mb-7"
+                    :style="{ height: `${item.size}` }"
+                    :src="item.src.filename"
+                    :alt="item.alt"
+                />
             </div>
         </div>
     </div>
@@ -39,25 +63,8 @@ export default class Wrapper extends Vue {
         [x: string]: string;
     };
 
-    calculatedWidth: string = '90%';
-
     mounted() {
-        this.getWidth();
-        window.addEventListener('resize', this.getWidth);
-    }
-
-    destroyed() {
-        window.removeEventListener('resize', this.getWidth);
-    }
-
-    getWidth() {
-        const w = document.body.offsetWidth;
-
-        if (w > 1024) {
-            this.calculatedWidth = `${100 / this.blok.content.length}%`;
-        } else {
-            this.calculatedWidth = '90%';
-        }
+        console.log(this.blok);
     }
 }
 </script>

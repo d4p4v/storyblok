@@ -9,6 +9,7 @@ import Timeline from '@/components/Timeline.vue';
 import SkillList from '@/components/SkillList.vue';
 import Spacer from '@/components/Spacer.vue';
 import Headline from '@/components/Headline.vue';
+import Footer from '@/components/Footer.vue';
 
 import './assets/tailwind.css';
 
@@ -27,6 +28,7 @@ Vue.component('timeline', Timeline);
 Vue.component('skill-list', SkillList);
 Vue.component('spacer', Spacer);
 Vue.component('headline', Headline);
+Vue.component('footerEl', Footer);
 
 new Vue({
     render: (h) => h(App),
