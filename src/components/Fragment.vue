@@ -17,7 +17,12 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class Fragment extends Vue {
     @Prop() blok!: {
-        body: [];
+        id: string;
+        items: [
+            {
+                component: string;
+            }
+        ];
     };
 }
 </script>

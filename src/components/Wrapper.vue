@@ -8,14 +8,7 @@
         }"
     >
         <div
-            class="
-                flex
-                items-center
-                justify-center
-                w-4/5
-                flex-col
-                lg:flex-row
-            "
+            class="flex items-center justify-center w-4/5 flex-col lg:flex-row"
         >
             <div
                 v-for="(item, index) in blok.content"
@@ -60,12 +53,24 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class Wrapper extends Vue {
     @Prop() blok!: {
-        [x: string]: string;
+        bg: {
+            color: string;
+        };
+        height: string;
+        content: [
+            {
+                alignment: string;
+                fg: { color: string };
+                component: string;
+                link: string;
+                content: string;
+                text: string;
+                size: string;
+                src: { filename: string };
+                alt: string;
+            }
+        ];
     };
-
-    mounted() {
-        console.log(this.blok);
-    }
 }
 </script>
 

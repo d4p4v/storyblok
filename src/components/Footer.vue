@@ -41,7 +41,24 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class Footer extends Vue {
     @Prop() blok!: {
-        items: [];
+        bg: {
+            color: string;
+        };
+        fg: {
+            color: string;
+        };
+        padding: string;
+        items: [
+            {
+                _uid: string;
+                content: string;
+                link: string;
+                text: string;
+                fg: {
+                    color: string;
+                };
+            }
+        ];
     };
 }
 </script>

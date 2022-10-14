@@ -10,7 +10,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class Headline extends Vue {
     @Prop() blok!: {
-        body: [];
+        content: string;
     };
 }
 </script>

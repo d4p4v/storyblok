@@ -38,7 +38,14 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class SkillList extends Vue {
     @Prop() blok!: {
-        [x: string]: string;
+        headline: string;
+        bg: {
+            color: string;
+        };
+        fg: {
+            color: string;
+        };
+        skills: [{ [x: string]: string }];
     };
 }
 </script>

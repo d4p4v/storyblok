@@ -32,7 +32,21 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class Navigation extends Vue {
     @Prop() blok!: {
-        [x: string]: any;
+        background: {
+            color: string;
+        };
+        foreground: {
+            color: string;
+        };
+        height: string;
+        spacing: string;
+        links: [
+            {
+                component: string;
+                id: string;
+                name: string;
+            }
+        ];
     };
 }
 </script>
